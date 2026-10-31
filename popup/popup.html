@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Blip</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img src="../icons/icon48.png" width="40" height="40" alt="">
+      <div class="titles">
+        <h1>The Blip</h1>
+        <p>Snap your fingers to disappear</p>
+      </div>
+      <label class="switch" title="Turn the extension on or off">
+        <input type="checkbox" id="enabled" role="switch" aria-label="Enable The Blip">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </header>
+
+    <section class="status" aria-label="Status">
+      <div class="chip" id="chipMeet"><i class="dot"></i><span>Meet</span><b id="vMeet">–</b></div>
+      <div class="chip" id="chipHand"><i class="dot"></i><span>Hand tracker</span><b id="vHand">–</b></div>
+      <div class="chip" id="chipBg"><i class="dot"></i><span>Background</span><b id="vBg">–</b></div>
+    </section>
+
+    <section class="actions">
+      <button class="btn tonal" id="capture" type="button">Capture background</button>
+      <button class="btn filled" id="toggle" type="button">Vanish now</button>
+    </section>
+    <p class="hint" id="hint"></p>
+
+    <section class="card">
+      <div class="row col">
+        <div class="label">
+          <span class="t">Return automatically</span>
+          <span class="s">Snapping again always brings you back</span>
+        </div>
+        <div class="seg" id="returnSeg" role="radiogroup" aria-label="Return automatically">
+          <button type="button" role="radio" data-v="15">15s</button>
+          <button type="button" role="radio" data-v="30">30s</button>
+          <button type="button" role="radio" data-v="60">1m</button>
+          <button type="button" role="radio" data-v="300">5m</button>
+          <button type="button" role="radio" data-v="0">Off</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <span class="t">Mute mic while vanished</span>
+          <span class="s">Unmutes when you come back</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="muteMic" role="switch" aria-label="Mute mic while vanished">
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <span class="t">Snap gesture</span>
+          <span class="s">Thumb + middle finger, then flick</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="gestureEnabled" role="switch" aria-label="Snap gesture">
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+
+      <div class="row col">
+        <div class="label">
+          <span class="t">Vanish sensitivity</span>
+          <span class="s">Raise it if part of you is left behind</span>
+        </div>
+        <input type="range" id="sensitivity" min="0" max="100" step="1" aria-label="Vanish sensitivity">
+      </div>
+    </section>
+
+    <footer>Hand tracking runs on your device. Nothing is uploaded.</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
